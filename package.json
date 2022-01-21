@@ -4,6 +4,7 @@
    "private": true,
    "dependencies": {
       "@auth0/auth0-react": "^1.9.0",
+      "axios": "^0.25.0",
       "fusioncharts": "^3.18.0",
       "react": "^17.0.2",
       "react-dom": "^17.0.2",

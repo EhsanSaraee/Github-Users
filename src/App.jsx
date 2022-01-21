@@ -1,14 +1,15 @@
-import React from 'react';
-import { Dashboard, Login, PrivateRoute, AuthWrapper, Error } from './pages';
+import { Dashboard, Error, Login } from './pages';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const App = () => {
    return (
-      <div>
-         <Dashboard></Dashboard>
-         <Login />
-         <Error />
-      </div>
+      <BrowserRouter>
+         <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="*" element={<Error />} />
+         </Routes>
+      </BrowserRouter>
    );
 };
 
