@@ -1,33 +1,29 @@
 import styled from 'styled-components';
 import { useGithubContext } from '../context/context';
-import { Pie3D, Column3D, Bar3D, Doughnut2D, Chart } from './Charts';
+import { Pie3D } from './Charts';
 
 const Repos = () => {
    const { repos } = useGithubContext();
-   console.log(repos);
-   const chartData = [
-      {
-         label: 'HTML',
-         value: '30',
-      },
-      {
-         label: 'CSS',
-         value: '50',
-      },
-      {
-         label: 'JavaScript',
-         value: '60',
-      },
-      {
-         label: 'React.js',
-         value: '80',
-      },
-   ];
+   let languages = repos.reduce((total, item) => {
+      const { language } = item;
+      if (!language) return total;
+      if (!total[language]) {
+         total[language] = { label: language, value: 1 };
+      } else {
+         total[language] = {
+            ...total[language],
+            value: total[language].value + 1,
+         };
+      }
+      return total;
+   }, {});
+
+   languages = Object.values(languages).sort((a, b) => b.value - a.value);
 
    return (
       <section className="section">
          <Wrapper className="section-center">
-            <Pie3D data={chartData} />
+            <Pie3D data={languages} />
          </Wrapper>
       </section>
    );

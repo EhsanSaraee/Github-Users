@@ -25,7 +25,7 @@ const Chart = ({ data }) => {
       dataSource: {
          // Chart Configuration
          chart: {
-            caption: 'Skills',
+            caption: 'Languages',
             theme: 'fusion',
             decimals: 0,
             pieRadius: '35%',
