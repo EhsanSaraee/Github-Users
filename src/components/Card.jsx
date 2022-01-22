@@ -21,11 +21,11 @@ const Card = () => {
             <img src={avatar_url} alt={name} />
             <div>
                <h4>{name}</h4>
-               <p>@{twitter_username} || 'Simon Riley</p>
+               <p>@{twitter_username}</p>
             </div>
             <a href={html_url}>follow</a>
          </header>
-         <p className="bio">bio</p>
+         <p className="bio">{bio}</p>
          <div className="links">
             <p>
                <MdBusiness />
@@ -33,7 +33,7 @@ const Card = () => {
             </p>
             <p>
                <MdBusiness />
-               {location || 'earth'}
+               {location}
             </p>
             <a href={`https://${blog}`}>
                <MdLink />
