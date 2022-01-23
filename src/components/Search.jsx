@@ -5,7 +5,7 @@ import { useGithubContext } from '../context/context';
 
 const Search = () => {
    const [user, setUser] = useState('');
-   const { requests } = useGithubContext();
+   const { requests, error } = useGithubContext();
 
    const submitHandler = (event) => {
       event.preventDefault();
@@ -15,6 +15,11 @@ const Search = () => {
    return (
       <section className="section">
          <Wrapper className="section-center">
+            {error.show && (
+               <ErrorWrapper>
+                  <p>{error.message}</p>
+               </ErrorWrapper>
+            )}
             <form onSubmit={submitHandler}>
                <div className="form-control">
                   <MdSearch />

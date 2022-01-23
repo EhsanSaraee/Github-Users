@@ -3,7 +3,7 @@ import { Info, Repos, User, Search, Navbar } from '../components';
 const Dashboard = () => {
    return (
       <main>
-         {/* <Navbar></Navbar> */}
+         <Navbar></Navbar>
          <Search />
          <Info />
          <User />
