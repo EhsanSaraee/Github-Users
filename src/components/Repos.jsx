@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useGithubContext } from '../context/context';
-import { Pie3D } from './Charts';
+import { Doughnut2D, Pie3D } from './Charts';
 
 const Repos = () => {
    const { repos } = useGithubContext();
@@ -24,6 +24,7 @@ const Repos = () => {
       <section className="section">
          <Wrapper className="section-center">
             <Pie3D data={languages} />
+            <Doughnut2D data={languages} />
          </Wrapper>
       </section>
    );

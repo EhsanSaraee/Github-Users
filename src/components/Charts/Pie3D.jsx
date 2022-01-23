@@ -16,10 +16,10 @@ ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 // STEP 3 - Creating the JSON object to store the chart configurations
 
 // STEP 4 - Creating the DOM element to pass the react-fusioncharts component
-const Chart = ({ data }) => {
+const Pie3D = ({ data }) => {
    const chartConfigs = {
       type: 'pie3d', // The chart type
-      width: '400', // Width of the chart
+      width: '100%', // Width of the chart
       height: '400', // Height of the chart
       dataFormat: 'json', // Data type
       dataSource: {
@@ -28,7 +28,7 @@ const Chart = ({ data }) => {
             caption: 'Languages',
             theme: 'fusion',
             decimals: 0,
-            pieRadius: '35%',
+            pieRadius: '45%',
          },
          // Chart Data
          data,
@@ -37,4 +37,4 @@ const Chart = ({ data }) => {
    return <ReactFC {...chartConfigs} />;
 };
 
-export default Chart;
+export default Pie3D;
