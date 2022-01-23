@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useGithubContext } from '../context/context';
-import { Doughnut2D, Pie3D } from './Charts';
+import { Bar3D, Column3D, Doughnut2D, Pie3D } from './Charts';
 
 const Repos = () => {
    const { repos } = useGithubContext();
@@ -36,7 +36,9 @@ const Repos = () => {
       <section className="section">
          <Wrapper className="section-center">
             <Pie3D data={mostUsed} />
+            <Column3D data={mostPopular} />
             <Doughnut2D data={mostPopular} />
+            <Bar3D data={mostUsed} />
          </Wrapper>
       </section>
    );
