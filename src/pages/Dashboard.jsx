@@ -1,6 +1,20 @@
 import { Info, Repos, User, Search, Navbar } from '../components';
+import { useGithubContext } from '../context/context';
+import loadingImage from '../images/preloader.gif';
 
 const Dashboard = () => {
+   const { loading } = useGithubContext();
+
+   if (loading) {
+      return (
+         <main>
+            <Navbar />
+            <Search />
+            <img src={loadingImage} alt="loading" className="loading-img" />
+         </main>
+      );
+   }
+
    return (
       <main>
          <Navbar></Navbar>

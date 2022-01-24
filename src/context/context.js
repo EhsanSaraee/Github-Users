@@ -19,8 +19,9 @@ const GithubProvider = ({ children }) => {
    const [error, setError] = useState({ show: false, message: '' });
 
    const searchGithubUser = async (user) => {
-      toggleError();
       try {
+         toggleError();
+         setLoading(true);
          const response = await axios.get(`${rootUrl}/users/${user}`);
          if (response) {
             setUser(response.data);
@@ -30,6 +31,8 @@ const GithubProvider = ({ children }) => {
       } catch (error) {
          console.log(error);
       }
+      checkRequests();
+      setLoading(false);
    };
    // Check Rate
    const checkRequests = async () => {
@@ -56,7 +59,15 @@ const GithubProvider = ({ children }) => {
 
    return (
       <GithubContext.Provider
-         value={{ user, repos, followers, requests, error, searchGithubUser }}
+         value={{
+            user,
+            repos,
+            followers,
+            requests,
+            error,
+            searchGithubUser,
+            loading,
+         }}
       >
          {children}
       </GithubContext.Provider>
